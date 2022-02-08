@@ -20,7 +20,5 @@ public class LanzadorTienda {
         
         
     }
-    
-//    comentario para ver si el commit  se ha hecho
-    
+//    Ahora escribo esto
 }
