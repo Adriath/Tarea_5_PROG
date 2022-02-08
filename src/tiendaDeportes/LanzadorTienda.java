@@ -6,7 +6,8 @@
 package tiendaDeportes;
 
 /**
- * Este es un programa 
+ * Clase principal con el método main. 
+ * 
  * @author Adrián Arjona
  */
 public class LanzadorTienda {
@@ -16,6 +17,10 @@ public class LanzadorTienda {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        
     }
+    
+//    comentario para ver si el commit  se ha hecho
     
 }
