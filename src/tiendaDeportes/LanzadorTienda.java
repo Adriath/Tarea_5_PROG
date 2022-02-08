@@ -18,7 +18,6 @@ public class LanzadorTienda {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        
     }
-//    Ahora escribo esto
+//    Y ahora lo cambio para que salga en el ordenador
 }
