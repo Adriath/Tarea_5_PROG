@@ -22,7 +22,9 @@ public class LanzadorTienda {
         
 //        Aqúi va un menú implementado a través de un método
 
-        
+        String mensaje = leerTeclado() ;
+        System.out.println("El resutlado: ");
+        System.out.println(mensaje);
     }
     
     private static void mostrarMenu(){ // MÉTODO QUE VA A ALBERGAR EL MENÚ
@@ -39,15 +41,39 @@ public class LanzadorTienda {
         
         // Declaración de variables y objetos
         
-        String mensaje ;
+        String mensaje = "";
+        boolean validador = false ;
         
         Scanner teclado = new Scanner(System.in) ;
         
         // Entrada y salida de datos
         
-        System.out.println("Introduce los datos escribiendo aquí: ");
-        mensaje = teclado.nextLine() ;
+        do
+        {
+            System.out.println("Introduce los datos escribiendo aquí: ");
+                try
+                {
+                    mensaje = teclado.nextLine() ;
+                    validador = true ;
+                }
+                catch (Exception e){
+                    System.out.println("Algo salió mal. Debes introducir una cadena de caracteres válida.");
+                }
+        } while (!validador) ;
         
         return mensaje ;
+    }
+    
+    private static int leerOpcion(){
+        
+        // Declaración de variables
+        
+        int opcion = 0 ;
+        boolean validador = false ;
+        
+        // Entrada y salida de datos
+        
+        System.out.println("Debes seleccionar un número del 0 al 9.");
+        
     }
 }
