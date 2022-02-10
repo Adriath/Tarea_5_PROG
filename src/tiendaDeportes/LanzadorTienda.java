@@ -29,9 +29,9 @@ public class LanzadorTienda {
 //        System.out.println(mensaje);
 
             
-            int opcion = leerOpcion() ;
-            
-            System.out.println(opcion);
+//            int opcion = leerOpcion() ;
+//            
+//            System.out.println(opcion);
     }
     
     private static void mostrarMenu(){ // MÉTODO QUE VA A ALBERGAR EL MENÚ
@@ -76,21 +76,28 @@ public class LanzadorTienda {
         // Declaración de variables
         
         int opcion = 0 ;
+        int datoIntroducido ;
         boolean validador = false ;
         
         // Entrada y salida de datos
         
-         do
+         do // Pedirá un número del 0 al 9 mientras que se cumpla la condición
          {
              System.out.println("Debes seleccionar un número del 0 al 9.");
              
              try
              {
-                opcion = Integer.parseInt(leerTeclado()) ;
-                validador = true ;
+                datoIntroducido = Integer.parseInt(leerTeclado()) ; // Pide el dato por teclado y lo guarda
+                
+                 if (datoIntroducido >= 0 & datoIntroducido <= 9) { // Si el número introcido está comprendido entre 0 y 9 (incluidos)...
+                     opcion = datoIntroducido ; // ...lo almacenará y saldrá del bucle para devolver ese valor
+                     validador = true ;
+                 }
              }
              catch (NumberFormatException e){
+                 System.out.println("----------------------------------------------");
                  System.out.println("Lo que has introducido no es un número entero.");
+                 System.out.println("----------------------------------------------");
              }
              catch (Exception e){
                  System.out.println("Algo salió mal... Presta atención a las instrucciones.");
