@@ -22,9 +22,16 @@ public class LanzadorTienda {
         
 //        Aqúi va un menú implementado a través de un método
 
-        String mensaje = leerTeclado() ;
-        System.out.println("El resutlado: ");
-        System.out.println(mensaje);
+// ----------------------- MAIN -------------------------------        
+
+//String mensaje = leerTeclado() ;
+//        System.out.println("El resutlado: ");
+//        System.out.println(mensaje);
+
+            
+            int opcion = leerOpcion() ;
+            
+            System.out.println(opcion);
     }
     
     private static void mostrarMenu(){ // MÉTODO QUE VA A ALBERGAR EL MENÚ
@@ -64,7 +71,7 @@ public class LanzadorTienda {
         return mensaje ;
     }
     
-    private static int leerOpcion(){
+     private static int leerOpcion(){
         
         // Declaración de variables
         
@@ -73,7 +80,25 @@ public class LanzadorTienda {
         
         // Entrada y salida de datos
         
-        System.out.println("Debes seleccionar un número del 0 al 9.");
-        
+         do
+         {
+             System.out.println("Debes seleccionar un número del 0 al 9.");
+             
+             try
+             {
+                opcion = Integer.parseInt(leerTeclado()) ;
+                validador = true ;
+             }
+             catch (NumberFormatException e){
+                 System.out.println("Lo que has introducido no es un número entero.");
+             }
+             catch (Exception e){
+                 System.out.println("Algo salió mal... Presta atención a las instrucciones.");
+             }
+             
+         } while (!validador);
+         
+        return opcion ;
     }
+    
 }
