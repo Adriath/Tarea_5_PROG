@@ -11,6 +11,7 @@ import java.util.Scanner;
  * Clase principal con el método main. 
  * 
  * @author Adrián Arjona
+ * @version 1.0
  */
 public class LanzadorTienda {
 
@@ -20,6 +21,7 @@ public class LanzadorTienda {
     public static void main(String[] args) {
         // TODO code application logic here
         
+//        Antes del menú deberá ir un método llamado obtenerDatosArticulo() que pedirá datos para utilizarlos en el menú
 //        Aqúi va un menú implementado a través de un método
 
 // ----------------------- MAIN -------------------------------        
@@ -71,6 +73,11 @@ public class LanzadorTienda {
         return mensaje ;
     }
     
+    /**
+     * Método que pide un número del 0 al 9 por teclado.
+     * 
+     * @return int. Devuelve un número del 0 al 9 (incluidos).
+     */
      private static int leerOpcion(){
         
         // Declaración de variables
@@ -90,7 +97,7 @@ public class LanzadorTienda {
                 datoIntroducido = Integer.parseInt(leerTeclado()) ; // Pide el dato por teclado y lo guarda
                 
                  if (datoIntroducido >= 0 & datoIntroducido <= 9) { // Si el número introcido está comprendido entre 0 y 9 (incluidos)...
-                     opcion = datoIntroducido ; // ...lo almacenará y saldrá del bucle para devolver ese valor
+                     opcion = datoIntroducido ; // ...lo almacenará y saldrá del bucle para devolver ese 
                      validador = true ;
                  }
              }
@@ -108,4 +115,6 @@ public class LanzadorTienda {
         return opcion ;
     }
     
+    // Aunque lo pone en el main lo repito aquí: falta un método, obtenerDatosArticulo()
+     
 }
