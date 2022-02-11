@@ -18,10 +18,41 @@ public class ArticuloDeportivo {
     private String codigoCompleto ;
     private String descripcionArticulo ;
     
-    private int codigoCiudad ;
-    private int codigoTienda ;
-    private int codigoArticulo ;
-    private int numeroControl ;
+    private String codigoCiudad ;
+    private String codigoTienda ;
+    private String codigoArticulo ;
+    private String numeroControl ;
+    
+    private int unidades ;
+    
+    // CONSTRUCTORES
+    
+    public ArticuloDeportivo(){
+        
+        codigoCompleto = "" ;
+        descripcionArticulo = "" ;
+        
+        codigoCiudad = "" ;
+        codigoTienda = "" ;
+        codigoArticulo = "" ;
+        numeroControl = "" ;
+    }
+    
+    public ArticuloDeportivo (String codCompleto, String descripcion, 
+            String codCiudad, String codTienda, String codArticulo, String numControl){
+        
+        this.codigoCompleto = codCompleto ;
+        this.descripcionArticulo = descripcion ;
+        
+        this.codigoCiudad = codCiudad ;
+        this.codigoTienda = codTienda ;
+        this.codigoArticulo = codArticulo ;
+        this.numeroControl = numControl ;
+        
+    }
+    
+    // AQUÍ VA EL CONSTRUCTOR COPIA QUE NO TENGO CLARO CÓMO SE HACE TODAVÍA
+    
     
     
 }
