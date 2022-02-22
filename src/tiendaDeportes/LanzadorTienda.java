@@ -26,6 +26,8 @@ public class LanzadorTienda {
 
 // ----------------------- MAIN -------------------------------        
 
+obtenerDatosArticulo() ;
+
 //String mensaje = leerTeclado() ;
 //        System.out.println("El resutlado: ");
 //        System.out.println(mensaje);
@@ -134,9 +136,9 @@ public class LanzadorTienda {
          return valido ;
      }
      
-     private static boolean validarCodigoArticulo(String codigo){
-         
-     }
+//     private static boolean validarCodigoArticulo(String codigo){
+//         
+//     }
      
      private static ArticuloDeportivo obtenerDatosArticulo(){
          
@@ -148,18 +150,27 @@ public class LanzadorTienda {
          
          // ENTRADA Y SALIDA DE DATOS
          
-         System.out.println("Inserta la descripción del artículo."); // Pide la descripción del artículo...
-         descripcion = leerTeclado() ; //...lo almacena...
-         valido = validarDescripcion(descripcion) ; // ...y lo valida
+         while (valido == false) // Mientras la descripción no se valide se repetirá el proceso de validación.
+         {
+            System.out.println("Inserta la descripción del artículo."); // Pide la descripción del artículo...
+            descripcion = leerTeclado() ; //...lo almacena...
+            valido = validarDescripcion(descripcion) ; // ...y lo valida
+            
+            if (valido == false) // Si no ha sido validado mostrará el siguiente mensaje antes de repetir el proceso.
+            {
+                System.out.println("\n--------------------------------------------------------------------------- ");
+                System.out.println("La descripción debe ser igual o inferior a 40 caracteres. Prueba de nuevo ");
+                System.out.println("---------------------------------------------------------------------------\n ");
+            }
+         } // Si la descripción ha sido validada mostrará el siguiente mensaje para indicar que ha sido registrada.
          
+            System.out.println(" ------------------------------------- ");
+            System.out.println("Descripción registrada correctamente.");
+            System.out.println(" ------------------------------------- ");
          
-         System.out.println("Inserta el código completo del artículo."); // Pide el código del artículo...
-         codigo = leerTeclado() ; //...lo almacena...
-         valido = validarCodigoArticulo(codigo) ; // ...y lo valida
+         ArticuloDeportivo art1 = new ArticuloDeportivo() ;         
          
-         
-         
-         return ;
+         return art1;
      }
      
 }
