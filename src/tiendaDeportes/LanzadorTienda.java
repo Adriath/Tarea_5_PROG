@@ -80,13 +80,13 @@ public class LanzadorTienda {
      */
      private static int leerOpcion(){
         
-        // Declaración de variables
+        // DECLARACIÓN DE VARIABLES
         
         int opcion = 0 ;
         int datoIntroducido ;
         boolean validador = false ;
         
-        // Entrada y salida de datos
+        // ENTRADA Y SALIDA DE DATOS
         
          do // Pedirá un número del 0 al 9 mientras que se cumpla la condición
          {
@@ -116,5 +116,50 @@ public class LanzadorTienda {
     }
     
     // Aunque lo pone en el main lo repito aquí: falta un método, obtenerDatosArticulo()
+    // También hay que crear los métoso validadDescripcion() y validadCodigoArticulo() que serán utilizados en el método anterior.
+     
+     private static boolean validarDescripcion(String descripcion){
+         
+         // DECLARACIÓN DE VARIABLES
+         
+         boolean valido = false ;
+                  
+         // OPERACIONES
+         
+         if (descripcion.length() <= 40 ) // Si la descripcion es menor o igual que 40 caracteres será válido (true). False en caso contrario
+         {
+             valido = true ;
+         }
+         
+         return valido ;
+     }
+     
+     private static boolean validarCodigoArticulo(String codigo){
+         
+     }
+     
+     private static ArticuloDeportivo obtenerDatosArticulo(){
+         
+         // DECLARACIÓN DE VARIABLES
+         
+         String descripcion ;
+         String codigo ;
+         boolean valido = false ;
+         
+         // ENTRADA Y SALIDA DE DATOS
+         
+         System.out.println("Inserta la descripción del artículo."); // Pide la descripción del artículo...
+         descripcion = leerTeclado() ; //...lo almacena...
+         valido = validarDescripcion(descripcion) ; // ...y lo valida
+         
+         
+         System.out.println("Inserta el código completo del artículo."); // Pide el código del artículo...
+         codigo = leerTeclado() ; //...lo almacena...
+         valido = validarCodigoArticulo(codigo) ; // ...y lo valida
+         
+         
+         
+         return ;
+     }
      
 }
