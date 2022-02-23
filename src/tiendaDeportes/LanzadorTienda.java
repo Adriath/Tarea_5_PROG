@@ -136,9 +136,50 @@ obtenerDatosArticulo() ;
          return valido ;
      }
      
-//     private static boolean validarCodigoArticulo(String codigo){
-//         
-//     }
+     private static boolean validarCodigoArticulo(String codigo){
+         
+         // DECLARACIÓN DE VARIABLES
+         
+         boolean valido = false ;
+         int codigoNumerico ;
+         int codCiudad ;
+         int codTienda ;
+         int codArticulo ;
+         int codControl ;
+         int codControlCalculado ;
+         
+         // OPERACIONES
+         
+         if (codigo.length() == 12) // Si la cadena es igual a 12 caracteres...
+         {
+            try
+             {
+                 codigoNumerico = Integer.parseInt(codigo) ; // ...la pasamos a tipo entero...
+             }
+             catch (Exception e){
+                 System.out.println("El código debe estar formado por dígitos numéricos."); // ...siempre y cuando la cadena esté formada por números.
+            }
+            
+            /*
+                Si la cadena estaba formada por números procedemos a extraer las
+                distintas partes para continuar con la validación.
+            */
+            
+            codCiudad = Integer.parseInt(codigo.substring(0, 2)) ; // El código de ciudad
+            codTienda = Integer.parseInt(codigo.substring(2, 4)) ; // El código de tienda
+            codArticulo = Integer.parseInt(codigo.substring(4, 10)) ; // El código del artículo
+            codControl = Integer.parseInt(codigo.substring(10, 12)) ; // El número de control
+            
+            codControlCalculado = (codCiudad + codTienda + codArticulo) % 99 ; // Realizamos la operación para calcular el número de control.
+            
+             if (codControlCalculado == codControl) // Si el código calculado es igual al introducido...
+             {
+                valido = true ; // ...el código será válido (true), ya que se recogen todas las validaciones anteriores llegados a este punto.
+             }
+         } // Si alguna de las condiciones no se ha cumplido el código saldrá del IF y el código no será válido (false).
+                  
+         return valido ;
+     }
      
      private static ArticuloDeportivo obtenerDatosArticulo(){
          
@@ -168,9 +209,9 @@ obtenerDatosArticulo() ;
             System.out.println("Descripción registrada correctamente.");
             System.out.println(" ------------------------------------- ");
          
-         ArticuloDeportivo art1 = new ArticuloDeportivo() ;         
+         ArticuloDeportivo articulo1 = new ArticuloDeportivo() ;         
          
-         return art1;
+         return articulo1;
      }
      
 }
