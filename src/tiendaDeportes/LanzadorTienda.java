@@ -136,6 +136,10 @@ obtenerDatosArticulo() ;
          return valido ;
      }
      
+//     private static void obtenerPartesDelCodigo(String codigo){
+//         
+//     }
+     
      private static boolean validarCodigoArticulo(String codigo){
          
          // DECLARACIÓN DE VARIABLES
@@ -152,13 +156,16 @@ obtenerDatosArticulo() ;
          
          if (codigo.length() == 12) // Si la cadena es igual a 12 caracteres...
          {
-            try
-             {
+//            try
+//             {
                  codigoNumerico = Integer.parseInt(codigo) ; // ...la pasamos a tipo entero...
-             }
-             catch (Exception e){
-                 System.out.println("El código debe estar formado por dígitos numéricos."); // ...siempre y cuando la cadena esté formada por números.
-            }
+//             }
+//            catch (NumberFormatException e) {
+//                System.out.println("El código debe estar formado por dígitos numéricos.");
+//            }
+//            catch (Exception e){
+//                System.out.println("El código debe estar formado por dígitos numéricos."); // ...siempre y cuando la cadena esté formada por números.
+//            }
             
             /*
                 Si la cadena estaba formada por números procedemos a extraer las
@@ -191,6 +198,8 @@ obtenerDatosArticulo() ;
          
          // ENTRADA Y SALIDA DE DATOS
          
+            // ------------- Descripción -----------------
+         
          while (valido == false) // Mientras la descripción no se valide se repetirá el proceso de validación.
          {
             System.out.println("Inserta la descripción del artículo."); // Pide la descripción del artículo...
@@ -207,6 +216,28 @@ obtenerDatosArticulo() ;
          
             System.out.println(" ------------------------------------- ");
             System.out.println("Descripción registrada correctamente.");
+            System.out.println(" ------------------------------------- ");
+            
+            valido = false ; // Reiniciamos el validador para repetir el proceso con el código.
+            
+            // ------------- Código -----------------
+         
+         while (valido == false) // Mientras el código no se valide se repetirá el proceso de validación.
+         {
+            System.out.println("Inserta el código completo del artículo."); // Pide el código del artículo...
+            codigo = leerTeclado() ; //...lo almacena...
+            valido = validarCodigoArticulo(codigo) ; // ...y lo valida
+            
+            if (valido == false) // Si no ha sido validado mostrará el siguiente mensaje antes de repetir el proceso.
+            {
+                System.out.println("\n--------------------------------------------------------------------------- ");
+                System.out.println("El código debe estar formado por 12 números. Prueba de nuevo ");
+                System.out.println("---------------------------------------------------------------------------\n ");
+            }
+         } // Si el código ha sido validado mostrará el siguiente mensaje para indicar que ha sido registrado.
+         
+            System.out.println(" ------------------------------------- ");
+            System.out.println("Código registrado correctamente.");
             System.out.println(" ------------------------------------- ");
          
          ArticuloDeportivo articulo1 = new ArticuloDeportivo() ;         
