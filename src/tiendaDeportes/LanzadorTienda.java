@@ -140,7 +140,7 @@ obtenerDatosArticulo() ;
 //         
 //     }
      
-     private static boolean validarCodigoArticulo(String codigo){
+     private static boolean validarCodigoArticulo(String codigo) throws NumberFormatException{
          
          // DECLARACIÓN DE VARIABLES
          
@@ -195,6 +195,7 @@ obtenerDatosArticulo() ;
          String descripcion ;
          String codigo ;
          boolean valido = false ;
+         boolean validadorCodigo = false ;
          
          // ENTRADA Y SALIDA DE DATOS
          
@@ -225,8 +226,19 @@ obtenerDatosArticulo() ;
          while (valido == false) // Mientras el código no se valide se repetirá el proceso de validación.
          {
             System.out.println("Inserta el código completo del artículo."); // Pide el código del artículo...
-            codigo = leerTeclado() ; //...lo almacena...
-            valido = validarCodigoArticulo(codigo) ; // ...y lo valida
+             do 
+             {
+                codigo = leerTeclado() ; //...lo almacena...
+                try
+                {
+                    valido = validarCodigoArticulo(codigo) ; // ...y lo valida
+                    validadorCodigo = true ;
+                }
+                catch (NumberFormatException e){
+                    System.out.println("Si se lee esto es que la cosa va bien");
+                }
+             } while (validadorCodigo == false);
+             
             
             if (valido == false) // Si no ha sido validado mostrará el siguiente mensaje antes de repetir el proceso.
             {
