@@ -140,7 +140,7 @@ obtenerDatosArticulo() ;
 //         
 //     }
      
-     private static boolean validarCodigoArticulo(String codigo){
+     private static boolean validarCodigoArticulo(String codigo)throws NumberFormatException{
          
          // DECLARACIÓN DE VARIABLES
          
@@ -196,11 +196,11 @@ obtenerDatosArticulo() ;
          String descripcion ;
          String codigo ;
          boolean valido = false ;
-         boolean validadorCodigo = false ;
+//         boolean validadorCodigo = false ;
          
          // ENTRADA Y SALIDA DE DATOS
          
-            // ------------- Descripción -----------------
+            // ------------- DESCRIPCIÓN -----------------
          
          while (valido == false) // Mientras la descripción no se valide se repetirá el proceso de validación.
          {
@@ -222,29 +222,32 @@ obtenerDatosArticulo() ;
             
             valido = false ; // Reiniciamos el validador para repetir el proceso con el código.
             
-            // ------------- Código -----------------
+            // ------------- CÓDIGO -----------------
          
          while (valido == false) // Mientras el código no se valide se repetirá el proceso de validación.
          {
-            do 
-             {
+//            do 
+//             {
                 System.out.println("Inserta el código completo del artículo."); // Pide el código del artículo...
                 codigo = leerTeclado() ; //...lo almacena...
                 try
                 {
                     valido = validarCodigoArticulo(codigo) ; // ...y lo valida
-                    validadorCodigo = true ;
+//                    validadorCodigo = true ;
                 }
                 catch (NumberFormatException e){
-                    System.out.println("Si se lee esto es que la cosa va bien");
+                    System.out.println("----------------------------------------------------------------------");
+                    System.out.println("Debes insertar un código válido de 12 números. Inténtalo de nuevo");
+                    System.out.println("----------------------------------------------------------------------");
                 }
-             } while (validadorCodigo == false);
+                
+//             } while (valido == false);
              
             
             if (valido == false) // Si no ha sido validado mostrará el siguiente mensaje antes de repetir el proceso.
             {
                 System.out.println("\n--------------------------------------------------------------------------- ");
-                System.out.println("El código debe estar formado por 12 números. Prueba de nuevo ");
+                System.out.println("Debes insertar un código válido de 12 números. Prueba de nuevo ");
                 System.out.println("---------------------------------------------------------------------------\n ");
             }
          } // Si el código ha sido validado mostrará el siguiente mensaje para indicar que ha sido registrado.
