@@ -140,17 +140,17 @@ obtenerDatosArticulo() ;
 //         
 //     }
      
-     private static boolean validarCodigoArticulo(String codigo) throws NumberFormatException{
+     private static boolean validarCodigoArticulo(String codigo){
          
          // DECLARACIÓN DE VARIABLES
          
          boolean valido = false ;
-         int codigoNumerico ;
+         long codigoNumerico ;
          int codCiudad ;
          int codTienda ;
          int codArticulo ;
          int codControl ;
-         int codControlCalculado ;
+         long codControlCalculado ;
          
          // OPERACIONES
          
@@ -158,8 +158,9 @@ obtenerDatosArticulo() ;
          {
 //            try
 //             {
-                 codigoNumerico = Integer.parseInt(codigo) ; // ...la pasamos a tipo entero...
+                 codigoNumerico = Long.parseLong(codigo) ; // ...la pasamos a tipo entero...
 //             }
+
 //            catch (NumberFormatException e) {
 //                System.out.println("El código debe estar formado por dígitos numéricos.");
 //            }
@@ -225,9 +226,9 @@ obtenerDatosArticulo() ;
          
          while (valido == false) // Mientras el código no se valide se repetirá el proceso de validación.
          {
-            System.out.println("Inserta el código completo del artículo."); // Pide el código del artículo...
-             do 
+            do 
              {
+                System.out.println("Inserta el código completo del artículo."); // Pide el código del artículo...
                 codigo = leerTeclado() ; //...lo almacena...
                 try
                 {
@@ -252,7 +253,9 @@ obtenerDatosArticulo() ;
             System.out.println("Código registrado correctamente.");
             System.out.println(" ------------------------------------- ");
          
-         ArticuloDeportivo articulo1 = new ArticuloDeportivo() ;         
+         ArticuloDeportivo articulo1 = new ArticuloDeportivo() ;   
+         
+         System.out.println("Mensaje provisional de confirmación");
          
          return articulo1;
      }
