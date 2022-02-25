@@ -28,6 +28,10 @@ public class LanzadorTienda {
 
 obtenerDatosArticulo() ;
 
+/* PARA LAS COMPROBACIONES PUEDE UTILIZARSE EL SIGUIENTE CÓDIGO CALCULADO POR MI
+    150200005067
+*/
+
 //String mensaje = leerTeclado() ;
 //        System.out.println("El resutlado: ");
 //        System.out.println(mensaje);
@@ -61,7 +65,7 @@ obtenerDatosArticulo() ;
         
         do
         {
-            System.out.println("Introduce los datos escribiendo aquí: ");
+            System.out.println("Introduce los datos escribiendo aquí:\n ");
                 try
                 {
                     mensaje = teclado.nextLine() ;
@@ -116,10 +120,13 @@ obtenerDatosArticulo() ;
          
         return opcion ;
     }
-    
-    // Aunque lo pone en el main lo repito aquí: falta un método, obtenerDatosArticulo()
-    // También hay que crear los métoso validadDescripcion() y validadCodigoArticulo() que serán utilizados en el método anterior.
-     
+
+     /**
+      * Método privado y estático que sirve para validar la descripción del artículo.
+      * 
+      * @param descripcion String. Es la descripción que vamos a validar.
+      * @return boolean. Devuelve true si la descripción es válida y false si no lo es.
+      */
      private static boolean validarDescripcion(String descripcion){
          
          // DECLARACIÓN DE VARIABLES
@@ -136,10 +143,13 @@ obtenerDatosArticulo() ;
          return valido ;
      }
      
-//     private static void obtenerPartesDelCodigo(String codigo){
-//         
-//     }
-     
+     /**
+      * Método privado y estático que sirve para validar el código del artículo.
+      * 
+      * @param codigo String. Es el código del artículo.
+      * @return boolean. Devuelve true si el código del artículo es válido y false si no lo es.
+      * @throws NumberFormatException. La excepción será capturada en el método del que va a formar parte.
+      */
      private static boolean validarCodigoArticulo(String codigo)throws NumberFormatException{
          
          // DECLARACIÓN DE VARIABLES
@@ -156,18 +166,9 @@ obtenerDatosArticulo() ;
          
          if (codigo.length() == 12) // Si la cadena es igual a 12 caracteres...
          {
-//            try
-//             {
-                 codigoNumerico = Long.parseLong(codigo) ; // ...la pasamos a tipo entero...
-//             }
 
-//            catch (NumberFormatException e) {
-//                System.out.println("El código debe estar formado por dígitos numéricos.");
-//            }
-//            catch (Exception e){
-//                System.out.println("El código debe estar formado por dígitos numéricos."); // ...siempre y cuando la cadena esté formada por números.
-//            }
-            
+            codigoNumerico = Long.parseLong(codigo) ; // ...la pasamos a tipo entero (long en este caso)...
+
             /*
                 Si la cadena estaba formada por números procedemos a extraer las
                 distintas partes para continuar con la validación.
@@ -180,10 +181,10 @@ obtenerDatosArticulo() ;
             
             codControlCalculado = (codCiudad + codTienda + codArticulo) % 99 ; // Realizamos la operación para calcular el número de control.
             
-             if (codControlCalculado == codControl) // Si el código calculado es igual al introducido...
-             {
-                valido = true ; // ...el código será válido (true), ya que se recogen todas las validaciones anteriores llegados a este punto.
-             }
+            if (codControlCalculado == codControl) // Si el código calculado es igual al introducido...
+            {
+               valido = true ; // ...el código será válido (true), ya que se recogen todas las validaciones anteriores llegados a este punto.
+            }
          } // Si alguna de las condiciones no se ha cumplido el código saldrá del IF y el código no será válido (false).
                   
          return valido ;
@@ -196,7 +197,6 @@ obtenerDatosArticulo() ;
          String descripcion ;
          String codigo ;
          boolean valido = false ;
-//         boolean validadorCodigo = false ;
          
          // ENTRADA Y SALIDA DE DATOS
          
@@ -226,23 +226,24 @@ obtenerDatosArticulo() ;
          
          while (valido == false) // Mientras el código no se valide se repetirá el proceso de validación.
          {
-//            do 
-//             {
-                System.out.println("Inserta el código completo del artículo."); // Pide el código del artículo...
-                codigo = leerTeclado() ; //...lo almacena...
-                try
-                {
-                    valido = validarCodigoArticulo(codigo) ; // ...y lo valida
-//                    validadorCodigo = true ;
-                }
-                catch (NumberFormatException e){
-                    System.out.println("----------------------------------------------------------------------");
-                    System.out.println("Debes insertar un código válido de 12 números. Inténtalo de nuevo");
-                    System.out.println("----------------------------------------------------------------------");
-                }
-                
-//             } while (valido == false);
-             
+
+            System.out.println("Inserta el código completo del artículo."); // Pide el código del artículo...
+            codigo = leerTeclado() ; //...lo almacena...
+            try
+            {
+                valido = validarCodigoArticulo(codigo) ; // ...y lo valida
+
+            }
+            catch (NumberFormatException e){
+                System.out.println("----------------------------------------------------------------------");
+                System.out.println("Debes insertar un código válido de 12 números. Inténtalo de nuevo");
+                System.out.println("----------------------------------------------------------------------");
+            }
+            catch (Exception e){
+                System.out.println("----------------------------------------------------------------------");
+                System.out.println("Debes insertar un código válido de 12 números. Inténtalo de nuevo");
+                System.out.println("----------------------------------------------------------------------");
+            }
             
             if (valido == false) // Si no ha sido validado mostrará el siguiente mensaje antes de repetir el proceso.
             {
@@ -256,7 +257,9 @@ obtenerDatosArticulo() ;
             System.out.println("Código registrado correctamente.");
             System.out.println(" ------------------------------------- ");
          
-         ArticuloDeportivo articulo1 = new ArticuloDeportivo() ;   
+         // ESTA PARTE TODAVÍA ESTÁ POR TERMINAR PORQUE FALTAN LOS CONSTRUCTORES DE LA OTRA CLASE
+            
+            ArticuloDeportivo articulo1 = new ArticuloDeportivo() ;   // Y entonces creará el objeto
          
          System.out.println("Mensaje provisional de confirmación");
          
