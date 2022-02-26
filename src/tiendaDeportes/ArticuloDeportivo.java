@@ -53,6 +53,46 @@ public class ArticuloDeportivo {
     
     // AQUÍ VA EL CONSTRUCTOR COPIA QUE NO TENGO CLARO CÓMO SE HACE TODAVÍA
     
+    // MÉTODOS
+    
+        // GETTERS & SETTERS
+
+    public String obtenerCodigoCompleto(){
+        
+        return codigoCompleto ;
+    }
+    
+    public String obtenerDescripcionArticulo(){
+        
+        return descripcionArticulo ;
+    }
+    
+    public String obtenerCodigoCiudad(){
+        
+        return codigoCiudad ;
+    }
+    
+    public String obtenerCodigoTienda(){
+        
+        return codigoTienda ;
+    }
+    
+    public String obtenerCodigoArticulo(){
+        
+        return codigoArticulo ;
+    }
+    
+    public String obtenerNumeroControl(){
+        
+        return numeroControl ;
+    }
+    
+    public int obtenerUnidades(){
+        
+        return unidades ;
+    }
+    
+    
     
     
 }
